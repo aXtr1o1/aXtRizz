@@ -1,6 +1,4 @@
-# AtomiQ - frontend
-
-![AtomiQ Logo](src/assets/atomiQ.png)
+# AxtRizz 
 
 
-fun frontend for atomiQ
+fun frontend for axtRizz
