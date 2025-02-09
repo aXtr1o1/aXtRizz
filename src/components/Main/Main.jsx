@@ -39,8 +39,8 @@ const Main = () => {
                 {!showResult
                     ? <>
                         <div className="greet">
-                            <p id='bold'><span>Hey</span></p>
-                            <p>Wanna play ?</p>
+                            <p id='bold'><span>Learn Rizzonomics</span></p>
+                            <p>Show and get rizzed !</p>
                         </div>
                         <div className="cards">
                         <div className="card"
