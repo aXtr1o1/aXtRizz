@@ -1,0 +1,369 @@
+/* Chatbot.css */
+body {
+    overflow: hidden;
+}
+
+#title{
+    font-size: larger;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.chatbot { /* Renamed from .main to .chatbot */
+    flex: 1;
+    /* max-height: 100svh;  REMOVED max-height */
+    position: relative; /* Keep relative positioning */
+    overflow-y: auto; /* Keep overflow-y auto for scrollable history */
+}
+
+
+.chatbot .nav { /* Renamed from .main .nav to .chatbot .nav - if you renamed earlier */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 20px;
+    color: #640D14;
+}
+
+.chatbot .nav img { /* Renamed from .main .nav img to .chatbot .nav img - if you renamed earlier */
+    width: 40px;
+    border-radius: 50%;
+}
+
+.chatbot-container { /* Renamed from .main-container to .chatbot-container - if you renamed earlier */
+    max-width: 900px;
+    margin: auto;
+}
+
+.chatbot .greet { /* Renamed from .main .greet to .chatbot .greet - if you renamed earlier -  We might remove this whole greet section from Chatbot.css*/
+    font-size: 56px;
+    color: #d4525b;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.chatbot .greet span { /* Renamed from .main .greet span to .chatbot .greet span - if you renamed earlier -  We might remove this whole greet section from Chatbot.css*/
+    background: -webkit-linear-gradient(16deg, #38040E, #AD2831);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.chatbot .cards { /* Renamed from .main .cards to .chatbot .cards - if you renamed earlier - We will remove cards section from Chatbot later */
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 15px 1fr 15px 1fr 15px 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 20px;
+    overflow-x: auto;
+    margin-bottom: 10rem;
+}
+
+.cards::-webkit-scrollbar { /* Renamed from .cards::-webkit-scrollbar to .cards::-webkit-scrollbar - if you renamed earlier - We will remove cards section from Chatbot later */
+    display: none;
+}
+
+.chatbot .card { /* Renamed from .main .card to .chatbot .card - if you renamed earlier - We will remove cards section from Chatbot later */
+    height: 200px;
+    min-width: 200px;
+    padding: 15px;
+    background-color: #ff6767;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.chatbot .card img { /* Renamed from .main .card img to .chatbot .card img - if you renamed earlier - We will remove cards section from Chatbot later */
+    width: 35px;
+    padding: 5px;
+    position: absolute;
+    background-color: rgb(182, 58, 58);
+    border-radius: 20px;
+    bottom: 10px;
+    right: 10px;
+}
+
+.chatbot .card p { /* Renamed from .main .card p to .chatbot .card p - if you renamed earlier - We will remove cards section from Chatbot later */
+    color: #000000;
+    font-size: 17px;
+}
+
+.chatbot .card:hover { /* Renamed from .main .card:hover to .chatbot .card:hover - if you renamed earlier - We will remove cards section from Chatbot later */
+    background-color: #ffa8a8;
+}
+
+.main-bottom { /* Keep main-bottom as it is, it's for the input area which is fixed at bottom */
+    position: fixed;
+    bottom: 0;
+    padding: 10px 20px 0 20px;
+    margin: auto;
+    background-color: transparent;
+}
+
+.search-box { /* Keep search-box as it is, style for input box */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-style: dashed;
+    border-color: rgb(207, 66, 66);
+    color: white;
+    background-color: transparent;
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.search-box img { /* Keep search-box img as it is, style for send icon */
+    width: 24px;
+    cursor: pointer;
+}
+
+.search-box textarea { /* Keep search-box textarea as it is, style for textarea */
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-inline: 8px;
+    font-size: 18px;
+    padding: 0.85rem;
+    resize: none;
+}
+
+.search-box textarea::-webkit-scrollbar { /* Keep search-box textarea scrollbar style */
+    display: none;
+}
+
+.search-box div { /* Keep search-box div style for icon container */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+}
+
+.chatbot .bottom-info { /* Renamed from .main .bottom-info to .chatbot .bottom-info - if you renamed earlier */
+    font-size: 13px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 300;
+}
+
+.bottom-info a { /* Keep bottom-info a style as it is, style for link in bottom info */
+    color: #585858;
+}
+
+.icon-container button { /* Keep icon-container button style as it is, style for send button */
+    padding: 10px;
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 100vh;
+    cursor: pointer;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+}
+
+.icon-container button:hover { /* Keep icon-container button hover style */
+    background-color: #c00000;
+}
+
+.result { /* Keep result style, adjust height if needed */
+    padding: 0 max(5%, 1rem);
+    /* max-height: 70vh;  We might want to adjust max-height or remove it if needed to take available space */
+    overflow-y: scroll;
+    height: calc(100% - 150px); /* Example: Adjust height to take space above input. Adjust 150px as needed based on nav and input height */
+}
+
+.result::-webkit-scrollbar { /* Keep result scrollbar style */
+    display: none;
+}
+
+.result-title { /* Keep result-title style */
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.result-title p { /* Keep result-title p style */
+    word-break: break-all;
+    color: white;
+}
+
+.result img { /* Keep result img style */
+    width: 40px;
+    border-radius: 50%;
+}
+
+.result-data { /* Keep result-data style */
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
+.loader { /* Keep loader style */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loader hr { /* Keep loader hr style */
+    border-radius: 4px;
+    border: none;
+    background: #000000 linear-gradient(to right, #aa4040, #000000, #750000);
+    background-size: 800px 50px;
+    height: 20px;
+    animation: loader 3s infinite linear;
+}
+span{ /* Keep span style */
+    font-weight: 700;
+}
+
+@keyframes loader { /* Keep loader animation */
+    0% {
+        background-position: -800px 0;
+    }
+    100% {
+        background-position: 800px 0;
+    }
+}
+
+.result-data > p { /* Keep result-data p style, ADD color here */
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 10vh;
+    color: #F08080; /* Pastel Royal Red (Light Coral) - ADDED for generated text color */
+}
+
+/* for tablets and less sized screens only */
+@media (max-width: 800px) {
+    .search-box { /* Keep search-box media query */
+        flex-direction: column;
+        align-items: start;
+        border-radius: 15px;
+        padding: 10px 20px;
+        gap: 10px;
+    }
+
+    .search-box textarea { /* Keep search-box textarea media query */
+        width: 100%;
+        padding: 15px 10px;
+    }
+
+    .main-bottom img { /* Keep main-bottom img media query */
+        width: 20px;
+    }
+
+    .search-box div { /* Keep search-box div media query */
+        gap: 5px;
+        margin-left: auto;
+        color: #ffffff;
+    }
+
+    .greet { /* Keep greet media query - We might remove this whole greet section from Chatbot.css*/
+        margin: 0 0;
+        padding-left: 22px;
+    }
+
+    .chatbot .greet { /* Renamed from .main .greet to .chatbot .greet - if you renamed earlier - We might remove this whole greet section from Chatbot.css*/
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+
+    .chatbot { /* Renamed from .main to .chatbot - if you renamed earlier - Adjust margin-left for smaller screens */
+        margin-left: 0px; /* Changed from 80px to 0px to take full width after greeting disappears */
+    }
+}
+
+/* for laptops and bigger sized screens only */
+@media (min-width: 800px) {
+    .greet { /* Keep greet media query - We might remove this whole greet section from Chatbot.css*/
+        margin-bottom: 25px;
+    }
+
+    .main-bottom { /* Keep main-bottom media query */
+        max-width: 900px;
+        width: -webkit-fill-available;
+    }
+}
+
+/* for mobiles only */
+@media (max-width: 450px) {
+    .chatbot .greet { /* Renamed from .main .greet to .chatbot .greet - if you renamed earlier - We might remove this whole greet section from Chatbot.css*/
+        font-size: 2.15rem;
+        line-height: 1.1;
+    }
+
+    .result-data-icon { /* Keep result-data-icon media query */
+        display: none;
+    }
+
+    .result-data > p { /* Keep result-data p media query */
+        margin-bottom: 30vh;
+    }
+}
+
+/* History and Bubble Styles */
+.result .user-prompt {
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+    margin-right: 10px;
+    margin-left: auto;
+    max-width: 80%;
+    background-color: #aa4040; /* User bubble background color */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px 20px 0 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.result .user-prompt p {
+    margin: 0;
+    word-break: break-word;
+}
+
+
+.result .bot-response,
+.result .current-response { /* Apply same styles to both bot-response and current-response */
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: auto; /* Push bot bubble to the left */
+    max-width: 80%;
+    background-color: transparent; /* Bot bubble background color - now transparent */
+    color: black; /* Example text color for bot bubble */
+    padding: 10px 15px;
+    border-radius: 0 20px 20px 20px; /* Rounded corners, top-left corner sharp */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional subtle shadow */
+}
+
+.result .bot-response p,
+.result .current-response p {
+    margin: 0;
+    word-break: break-word;
+}
+
+
+.result .current-prompt {
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+    margin-right: 10px;
+    margin-left: auto;
+    max-width: 80%;
+    background-color: #aa4040; /* User bubble background color */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px 20px 0 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.result .history-item {
+    margin-bottom: 15px;
+}

@@ -11,6 +11,9 @@ const ContextProvider = (props) => {
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
+    const [chatHistory, setChatHistory] = useState([]);
+    const [showChatbot, setShowChatbot] = useState(false);
+    const [currentChat, setCurrentChat] = useState(null); // ADD currentChat state
 
     const delayPara = (index, nextWord) => {
         setTimeout(function () {
@@ -21,23 +24,37 @@ const ContextProvider = (props) => {
     const newChat = () => {
         setLoading(false);
         setShowResult(false);
+        setResultData("");
+        setChatHistory([]);
+        setShowChatbot(false);
+        setCurrentChat(null); // Clear currentChat on new chat - ADD THIS LINE
     }
 
     const onSent = async (prompt) => {
 
-
+        setShowChatbot(true);
         setResultData("");
         setLoading(true);
         setShowResult(true);
-        let response;
+        let currentPrompt;
         if (prompt !== undefined) {
-            response = await runChat(prompt);
-            setRecentPrompt(prompt);
+            currentPrompt = prompt;
         } else {
             setPrevPrompts(prev => [...prev, input]);
-            setRecentPrompt(input);
-            response = await runChat(input);
+            currentPrompt = input;
         }
+
+        // Move previous currentChat to history, if it exists
+        if (currentChat) {
+            setChatHistory(prevHistory => [...prevHistory, currentChat]);
+        }
+
+        setRecentPrompt(currentPrompt);
+        const response = await runChat(currentPrompt);
+
+        // Set the new current chat (will be moved to history on next input)
+        setCurrentChat({ prompt: currentPrompt, response: response });
+
 
         let responseArray = response.split("**");
         let newResponse = "";
@@ -47,10 +64,10 @@ const ContextProvider = (props) => {
             } else {
                 newResponse += "<b>" + responseArray[i] + "</b>"
             }
-
         }
         let newResponse2 = newResponse.split("*").join("</br>");
         let newResponseArray = newResponse2.split(" ");
+        setResultData("");
         for (let i = 0; i < newResponseArray.length; i++) {
             const nextWord = newResponseArray[i];
             delayPara(i, nextWord + " ");
@@ -70,7 +87,11 @@ const ContextProvider = (props) => {
         resultData,
         input,
         setInput,
-        newChat
+        newChat,
+        chatHistory,
+        setChatHistory,
+        showChatbot,
+        setShowChatbot,
     }
     return (
         <Context.Provider value={contextValue}>
