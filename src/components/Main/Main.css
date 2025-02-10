@@ -168,14 +168,7 @@ body {
     gap: 10px;
 }
 
-.loader hr {
-    border-radius: 4px;
-    border: none;
-    background: #000000 linear-gradient(to right, #aa4040, #000000, #750000);
-    background-size: 800px 50px;
-    height: 20px;
-    animation: loader 3s infinite linear;
-}
+
 span{
     font-weight: 700;
 }
@@ -243,11 +236,15 @@ span{
         font-size: 2.15rem;
         line-height: 1.1;
     }
-    .cards{
+    
+    .cards div{
         display: none;
     }
     .result-data-icon {
         display: none;
+    }
+    .greet{
+        margin: auto;
     }
 
     .result-data > p {
