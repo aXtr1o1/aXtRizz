@@ -86,7 +86,7 @@ const Chatbot = () => {
                               value={input}
                               type="text"
                               placeholder="Talk to me"
-                              style={{ color: 'white', backgroundColor: 'black' }}
+                              style={{ color: 'white', alignContent: 'center'}}
                     />
                     <div className="icon-container">
                         <button type="submit" onClick={() => onSent()}><img src={assets.send_icon} alt=""/></button>
