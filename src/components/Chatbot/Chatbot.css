@@ -85,7 +85,7 @@ body {
 }
 
 .chatbot .card p { /* Renamed from .main .card p to .chatbot .card p - if you renamed earlier - We will remove cards section from Chatbot later */
-    color: #000000;
+    color: #222222;
     font-size: 17px;
 }
 

@@ -21,7 +21,7 @@ body {
     justify-content: space-between;
     font-size: 22px;
     padding: 20px;
-    color: #640D14;
+    color: #ffffff;
 }
 
 .main .nav img {
@@ -36,13 +36,13 @@ body {
 
 .main .greet {
     font-size: 56px;
-    color: #d4525b;
+    color: #d452a2;
     font-weight: 500;
     padding: 20px;
 }
 
 .main .greet span {
-    background: -webkit-linear-gradient(16deg, #38040E, #AD2831);
+    background: -webkit-linear-gradient(16deg, #ff3392, #ce747a, #ff305d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -66,7 +66,7 @@ body {
     height: 200px;
     min-width: 200px;
     padding: 15px;
-    background-color: #ff6767;
+    background-color: #ff6795;
     border-radius: 10px;
     position: relative;
     cursor: pointer;
@@ -76,7 +76,7 @@ body {
     width: 35px;
     padding: 5px;
     position: absolute;
-    background-color: rgb(182, 58, 58);
+    background-color: rgb(182, 58, 120);
     border-radius: 20px;
     bottom: 10px;
     right: 10px;
@@ -88,7 +88,7 @@ body {
 }
 
 .main .card:hover {
-    background-color: #ffa8a8;
+    background-color: #ffa8e2;
 }
 
 .main-bottom {
@@ -105,7 +105,7 @@ body {
     justify-content: space-between;
     gap: 20px;
     border-style: dashed;
-    border-color: rgb(207, 66, 66);
+    border-color: rgb(207, 66, 101);
     color: white;
     background-color: transparent;
     padding: 8px 20px;
