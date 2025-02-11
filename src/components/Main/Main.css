@@ -39,6 +39,7 @@ body {
     transform: rotate(-10deg);
     text-shadow: 0 0 2px #ff00b3, 0 0 6px #ff0095, 0 0 7px #ff00f2, 0 0 9px #ff00bf, 0 0 11px #ff0000, 0 0 2px #ff009d, 0 0 18px #ff0000;
     font-size: 15vh;
+    color: white;
 }
 .main .greet p.sng{
     transform: rotate(-10deg);
@@ -70,8 +71,10 @@ body {
 .main-container {
     max-width: 900px;
     margin: auto;
+    margin-top: 1.5%;
+}
+.main-container .greet{
     margin-top: 11%;
-
 }
 
 .main .greet {
