@@ -1,11 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
+body {
+    font-family: 'MyCustomFont', sans-serif;
+}
+.baskervville-regular {
+    font-family: "Baskervville", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+.meow-script-regular {
+    font-family: "Meow Script", serif;
+    font-style: normal;
+  }
+
 body {
     overflow: hidden;
+    display: grid;
+
 }
 
 #title{
     font-size: larger;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.main .greet div{
+    height: screen;
+    position: relative;
+    margin: auto;
+}
+.main .greet p{
+    text-align: center;
+    vertical-align: auto;
+}
+.main .greet p.rizz{
+    transform: rotate(-10deg);
+    text-shadow: 0 0 2px #ff00b3, 0 0 6px #ff0095, 0 0 7px #ff00f2, 0 0 9px #ff00bf, 0 0 11px #ff0000, 0 0 2px #ff009d, 0 0 18px #ff0000;
+    font-size: 15vh;
+}
+.main .greet p.sng{
+    transform: rotate(-10deg);
+    font-size: 8vh;
+    margin-right: 10%;
 }
 
 .main {
@@ -32,6 +70,8 @@ body {
 .main-container {
     max-width: 900px;
     margin: auto;
+    margin-top: 11%;
+
 }
 
 .main .greet {
@@ -45,6 +85,11 @@ body {
     background: -webkit-linear-gradient(16deg, #ff3392, #ce747a, #ff305d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+     z-index: auto;
+    text-align: center;
+    animation: blink 12s infinite;
+    -webkit-animation: blink 12s infinite;
+    display: none;
 }
 
 .main .cards {
@@ -233,8 +278,7 @@ span{
         margin: 0;
     }
     .main .greet {
-        font-size: 2.15rem;
-        line-height: 1.1;
+        font-size: 1vh;
     }
     
     .cards div{
