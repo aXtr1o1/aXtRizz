@@ -115,6 +115,9 @@ body {
 .search-box:focus-within {
     background-color: transparent;
 }
+.search-box textarea:focus{
+    outline: none;
+}
 .search-box textarea:focus-within {
     background-color: transparent;
 }
@@ -444,7 +447,7 @@ span{
     text-align: left;
     margin-left: 10px;
     margin-right: auto;
-    max-width: fit-content;
+    max-width: 80%;
     background-color: transparent;
     padding: 10px 15px;
     border-radius: 0 20px 20px 20px;
