@@ -1,7 +1,6 @@
 /* Chatbot.css - Mobile Responsive Enhanced and Seamless Search Bar */
 body {
     overflow: hidden;
-    height: screen;
 }
 
 #title{
@@ -33,63 +32,6 @@ body {
 .chatbot-container {
     max-width: 900px;
     margin: auto;
-}
-
-.chatbot .greet {
-    font-size: 40px;
-    color: #d4525b;
-    font-weight: 500;
-    padding: 20px;
-    text-align: center;
-}
-
-.chatbot .greet span {
-    background: -webkit-linear-gradient(16deg, #38040E, #AD2831);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.chatbot .cards {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px;
-    margin-bottom: 5rem;
-}
-
-.cards::-webkit-scrollbar {
-    display: none;
-}
-
-.chatbot .card {
-    height: 150px;
-    min-width: 150px;
-    padding: 10px;
-    background-color: #ff6767;
-    border-radius: 8px;
-    position: relative;
-    cursor: pointer;
-    flex: 0 0 auto;
-}
-
-.chatbot .card img {
-    width: 30px;
-    padding: 4px;
-    position: absolute;
-    background-color: rgb(182, 58, 58);
-    border-radius: 20px;
-    bottom: 8px;
-    right: 8px;
-}
-
-.chatbot .card p {
-    color: #222222;
-    font-size: 16px;
-}
-
-.chatbot .card:hover {
-    background-color: #ffa8a8;
 }
 
 .main-bottom {
@@ -286,15 +228,6 @@ span{
         border-color: #f080b4;
     }
 
-    .greet {
-        margin: 0 0;
-        padding-left: 15px;
-    }
-
-    .chatbot .greet {
-        font-size: 2.2rem;
-        line-height: 1.1;
-    }
 
     .chatbot {
         margin-left: 0px;
@@ -303,9 +236,6 @@ span{
 
 /* for laptops and bigger sized screens only */
 @media (min-width: 800px) {
-    .greet {
-        margin-bottom: 25px;
-    }
 
     .main-bottom {
         max-width: 900px;
@@ -324,28 +254,7 @@ span{
         width: 30px;
     }
 
-    .chatbot .greet {
-        font-size: 2rem;
-        line-height: 1.2;
-        padding: 15px;
-    }
 
-    .chatbot .cards {
-        display: none;
-        margin-bottom: 3rem;
-        padding: 5px;
-        gap: 5px;
-    }
-
-    .chatbot .card {
-        height: 120px;
-        min-width: 120px;
-        padding: 8px;
-    }
-
-    .chatbot .card p {
-        font-size: 14px;
-    }
 
     .search-box {
         flex-direction: row;

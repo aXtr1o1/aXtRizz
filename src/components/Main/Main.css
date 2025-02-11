@@ -39,7 +39,7 @@ body {
 .main .greet p.rizz{
     transform: rotate(-10deg);
     text-shadow: 0 0 2px #ff00b3, 0 0 6px #ff0095, 0 0 7px #ff00f2, 0 0 9px #ff00bf, 0 0 11px #ff0000, 0 0 2px #ff009d, 0 0 18px #ff0000;
-    font-size: 15vh;
+    font-size: 14vh;
     color: white;
 }
 .main .greet p.sng{
@@ -50,7 +50,7 @@ body {
 
 .main {
     flex: 1;
-    max-height: 100svh;
+    max-height: screen;
     position: relative;
     overflow-y: auto;
 }
@@ -75,7 +75,7 @@ body {
     margin-top: 1.5%;
 }
 .main-container .greet{
-    margin-top: 11%;
+    margin-top: 20%;
 }
 
 .main .greet {
@@ -281,9 +281,7 @@ span{
     .main{
         margin: 0;
     }
-    .main .greet {
-        font-size: 1vh;
-    }
+
     
     .cards div{
         display: none;
@@ -291,10 +289,15 @@ span{
     .result-data-icon {
         display: none;
     }
+    p.rizz{
+        font-size: 1 rem;
+    }
     .greet{
         margin: auto;
     }
-
+    .main-container .greet{
+        margin-top: 40%;
+    }
     .result-data > p {
         margin-bottom: 30vh;
     }
