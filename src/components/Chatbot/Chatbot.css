@@ -253,8 +253,11 @@ span{
     .chatbot .nav img {
         width: 30px;
     }
-
-
+    
+    .main-bottom {
+        max-width: 900px;
+        width: -webkit-fill-available;
+    }
 
     .search-box {
         flex-direction: row;
@@ -263,6 +266,7 @@ span{
         border-style: solid;
         border-color: #aa4071;
         gap: 5px;
+        width: 100%;
         background-color: transparent; /* Solid white background for mobile search box */
     }
     

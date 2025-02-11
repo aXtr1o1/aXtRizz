@@ -93,7 +93,7 @@ const Chatbot = () => {
                     </div>
                 </div>
                 <p className="bottom-info" style={{color:'white'}}>
-                    Responses are generated based on the given prompt. Please do not share any personal information.
+                    Caution! You might get Rizzed
                 </p>
             </div>
         </div>
