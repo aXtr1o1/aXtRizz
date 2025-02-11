@@ -20,43 +20,17 @@ setInput(text); // Use setInput from context to update Chatbot's input
     return (
       <main className="main">
         <nav className="nav">
-          <p onClick={() => newChat()} id='title'>aXtRizz</p>
+          <p onClick={() => newChat()} className='baskervville-regular' id='title'>aXtRizz</p>
+          <a href="https://axtr.in">
+          <img src="src/assets/whiteFG.png" alt="" className='image'/>
+          </a>
         </nav>
         <div className="main-container">
           {!showChatbot && (
             <>
               <div className="greet">
-                <p id='bold'><span>Learn Rizzonomics</span></p>
-                <p>Show and get rizzed !</p>
-              </div>
-              <div className="cards">
-                <div className="card"
-                  onClick={() => handleCardClick("Are you a patent? Because I'd like to explore your intellectual property.")} // Call handleCardClick
-                >
-                  <p>Are you a patent? Because I'd like to explore your intellectual property.</p>
-                  <img src={assets.compass_icon} alt=""/>
-                </div>
-
-                <div className="card"
-                  onClick={() => handleCardClick("Is your heart a manufacturing plant? Because it's producing some serious feelings for me.")} // Call handleCardClick
-                >
-                  <p>Is your heart a manufacturing plant? Because it's producing some serious feelings for me.</p>
-                  <img src={assets.bulb_icon} alt=""/>
-                </div>
-
-                <div className="card"
-                  onClick={() => handleCardClick("Do you work for the patent office? Because you've got 'fine' written all over you.")} // Call handleCardClick
-                >
-                  <p>Do you work for the patent office? Because you've got 'fine' written all over you.</p>
-                  <img src={assets.message_icon} alt=""/>
-                </div>
-
-                <div className="card"
-                  onClick={() => handleCardClick("Are you an HVAC system? Because you've got me feeling hot and bothered.")} // Call handleCardClick
-                >
-                  <p>Are you an HVAC system? Because you've got me feeling hot and bothered.</p>
-                  <img src={assets.code_icon} alt=""/>
-                </div>
+                <p className='meow-script-regular sng'>Show and Get </p><p className='meow-script-regular rizz'>Rizzed !</p>
+                <p id='bold' className='sixtyfour-convergence-A'><span>RIZZANOMICS</span></p>
               </div>
             </>
           )}

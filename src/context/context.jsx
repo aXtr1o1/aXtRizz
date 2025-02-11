@@ -48,6 +48,7 @@ const ContextProvider = (props) => {
         if (currentChat) {
             setChatHistory(prevHistory => [...prevHistory, currentChat]);
         }
+        setInput("");
 
         setRecentPrompt(currentPrompt);
         const response = await runChat(currentPrompt);
@@ -73,7 +74,6 @@ const ContextProvider = (props) => {
             delayPara(i, nextWord + " ");
         }
         setLoading(false);
-        setInput("");
     }
 
     const contextValue = {

@@ -34,63 +34,6 @@ body {
     margin: auto;
 }
 
-.chatbot .greet {
-    font-size: 40px;
-    color: #d4525b;
-    font-weight: 500;
-    padding: 20px;
-    text-align: center;
-}
-
-.chatbot .greet span {
-    background: -webkit-linear-gradient(16deg, #38040E, #AD2831);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.chatbot .cards {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px;
-    margin-bottom: 5rem;
-}
-
-.cards::-webkit-scrollbar {
-    display: none;
-}
-
-.chatbot .card {
-    height: 150px;
-    min-width: 150px;
-    padding: 10px;
-    background-color: #ff6767;
-    border-radius: 8px;
-    position: relative;
-    cursor: pointer;
-    flex: 0 0 auto;
-}
-
-.chatbot .card img {
-    width: 30px;
-    padding: 4px;
-    position: absolute;
-    background-color: rgb(182, 58, 58);
-    border-radius: 20px;
-    bottom: 8px;
-    right: 8px;
-}
-
-.chatbot .card p {
-    color: #222222;
-    font-size: 16px;
-}
-
-.chatbot .card:hover {
-    background-color: #ffa8a8;
-}
-
 .main-bottom {
     position: fixed;
     bottom: 0;
@@ -114,9 +57,11 @@ body {
 .search-box:focus-within {
     background-color: transparent;
 }
+.search-box textarea:focus{
+    outline: none;
+}
 .search-box textarea:focus-within {
     background-color: transparent;
-    border-color: transparent;
 }
 
 .search-box img {
@@ -127,6 +72,7 @@ body {
 
 
 .search-box textarea::placeholder {
+    border-color: transparent;
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -161,11 +107,13 @@ body {
 .icon-container button:hover {
     background-color: #b9367e;
 }
-
+.result div{
+    height: max-content;
+}
 .result {
     padding: 0 max(3%, 0.5rem);
     overflow-y: scroll;
-    height: calc(100% - 130px);
+    height: calc(100% );
 }
 
 .result::-webkit-scrollbar {
@@ -280,15 +228,6 @@ span{
         border-color: #f080b4;
     }
 
-    .greet {
-        margin: 0 0;
-        padding-left: 15px;
-    }
-
-    .chatbot .greet {
-        font-size: 2.2rem;
-        line-height: 1.1;
-    }
 
     .chatbot {
         margin-left: 0px;
@@ -297,9 +236,6 @@ span{
 
 /* for laptops and bigger sized screens only */
 @media (min-width: 800px) {
-    .greet {
-        margin-bottom: 25px;
-    }
 
     .main-bottom {
         max-width: 900px;
@@ -317,28 +253,10 @@ span{
     .chatbot .nav img {
         width: 30px;
     }
-
-    .chatbot .greet {
-        font-size: 2rem;
-        line-height: 1.2;
-        padding: 15px;
-    }
-
-    .chatbot .cards {
-        display: none;
-        margin-bottom: 3rem;
-        padding: 5px;
-        gap: 5px;
-    }
-
-    .chatbot .card {
-        height: 120px;
-        min-width: 120px;
-        padding: 8px;
-    }
-
-    .chatbot .card p {
-        font-size: 14px;
+    
+    .main-bottom {
+        max-width: 900px;
+        width: -webkit-fill-available;
     }
 
     .search-box {
@@ -348,6 +266,7 @@ span{
         border-style: solid;
         border-color: #aa4071;
         gap: 5px;
+        width: 100%;
         background-color: transparent; /* Solid white background for mobile search box */
     }
     
@@ -358,6 +277,7 @@ span{
     }
 
     .search-box textarea::placeholder {
+        border-color: transparent;
         color: rgba(255, 255, 255, 0.5); /* Placeholder text to dark grey for mobile search box */
     }
 
@@ -420,7 +340,7 @@ span{
     text-align: right;
     margin-right: 10px;
     margin-left: auto;
-    max-width: 80%;
+    max-width: fit-content;
     background: -webkit-linear-gradient(16deg, #ff3392, #ce747a, #ff305d);
     color: white;
     padding: 10px 15px;
@@ -459,7 +379,7 @@ span{
     text-align: right;
     margin-right: 10px;
     margin-left: auto;
-    max-width: 80%;
+    max-width: fit-content;
     background: -webkit-linear-gradient(16deg, #ff3392, #ce747a, #ff305d);
     color: white;
     padding: 10px 15px;

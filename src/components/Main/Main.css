@@ -1,5 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
+body {
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+.baskervville-regular {
+    font-family: "Baskervville", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+.meow-script-regular {
+    font-family: "Meow Script", serif;
+    font-style: normal;
+  }
+
+img.image{
+    min-width: 20vh;
+    border-radius: 0%;
+}
 body {
     overflow: hidden;
+    display: grid;
+
 }
 
 #title{
@@ -8,9 +31,30 @@ body {
     cursor: pointer;
 }
 
+.main .greet div{
+    height: screen;
+    position: relative;
+    margin: auto;
+}
+.main .greet p{
+    text-align: center;
+    vertical-align: auto;
+}
+.main .greet p.rizz{
+    transform: rotate(-10deg);
+    text-shadow: 0 0 2px #ff00b3, 0 0 6px #ff0095, 0 0 7px #ff00f2, 0 0 9px #ff00bf, 0 0 11px #ff0000, 0 0 2px #ff009d, 0 0 18px #ff0000;
+    font-size: 14vh;
+    color: white;
+}
+.main .greet p.sng{
+    transform: rotate(-10deg);
+    font-size: 8vh;
+    margin-right: 10%;
+}
+
 .main {
     flex: 1;
-    max-height: 100svh;
+    max-height: screen;
     position: relative;
     overflow-y: auto;
 }
@@ -26,12 +70,15 @@ body {
 
 .main .nav img {
     width: 40px;
-    border-radius: 50%;
 }
 
 .main-container {
     max-width: 900px;
     margin: auto;
+    margin-top: 1.5%;
+}
+.main-container .greet{
+    margin-top: 20%;
 }
 
 .main .greet {
@@ -45,6 +92,11 @@ body {
     background: -webkit-linear-gradient(16deg, #ff3392, #ce747a, #ff305d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+     z-index: auto;
+    text-align: center;
+    animation: blink 12s infinite;
+    -webkit-animation: blink 12s infinite;
+    display: none;
 }
 
 .main .cards {
@@ -232,10 +284,7 @@ span{
     .main{
         margin: 0;
     }
-    .main .greet {
-        font-size: 2.15rem;
-        line-height: 1.1;
-    }
+
     
     .cards div{
         display: none;
@@ -243,10 +292,15 @@ span{
     .result-data-icon {
         display: none;
     }
+    p.rizz{
+        font-size: 1 rem;
+    }
     .greet{
         margin: auto;
     }
-
+    .main-container .greet{
+        margin-top: 40%;
+    }
     .result-data > p {
         margin-bottom: 30vh;
     }
