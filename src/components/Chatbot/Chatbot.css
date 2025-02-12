@@ -113,7 +113,8 @@ body {
 .result {
     padding: 0 max(3%, 0.5rem);
     overflow-y: scroll;
-    height: calc(100% );
+    height: calc(100%);
+
 }
 
 .result::-webkit-scrollbar {
