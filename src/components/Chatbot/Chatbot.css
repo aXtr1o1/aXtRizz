@@ -49,7 +49,7 @@ body {
     gap: 10px;
     border: none;
     color: white;
-    background-color: black;
+    background-color: transparent;
     padding: 6px 15px;
     border-radius: 40px;
 }
