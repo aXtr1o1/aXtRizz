@@ -143,26 +143,11 @@ body {
     background-color: #ffa8e2;
 }
 
-.main-bottom {
-    position: fixed;
-    bottom: 0;
-    padding: 10px 20px 0 20px;
-    margin: auto;
-    background-color: transparent;
-}
 
 
 
-.main .bottom-info {
-    font-size: 13px;
-    margin: 15px auto;
-    text-align: center;
-    font-weight: 300;
-}
 
-.bottom-info a {
-    color: #585858;
-}
+
 
 .icon-container button {
     padding: 10px;
