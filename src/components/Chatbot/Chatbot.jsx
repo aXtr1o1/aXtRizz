@@ -27,7 +27,7 @@ const Chatbot = () => {
         <div className="chatbot">
             <div className='result' ref={resultRef}>
                 {chatHistory.length === 0 && !showResult ? (
-                    <p className="empty-chat">Start a conversation...</p>
+                    <p className="empty-chat"></p>
                 ) : (
                     chatHistory.map((chatItem, index) => (
                         <div key={index}>
