@@ -14,7 +14,7 @@ import code_icon from './code_icon.png'
 import send_icon from './send_icon.png'
 import gemini_icon from './gemini_icon.png'
 import favicon from './favicon.png'
-
+import whitefg from './whiteFG.svg'
 
 
 export const assets = {
@@ -34,6 +34,7 @@ export const assets = {
     send_icon,
     gemini_icon,
     favicon,
+    whitefg,
   
 
 }
