@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { TrackGoogleAnalyticsEvent } from "../analytics";
 
 export const Context = createContext();
 
@@ -43,6 +44,9 @@ const ContextProvider = (props) => {
     };
 
     const onSent = async (prompt) => {
+        TrackGoogleAnalyticsEvent("user_message_sent", {
+            message: "rizzing..."
+        });
         setShowChatbot(true);
         setResultData("");
         setLoading(true);
