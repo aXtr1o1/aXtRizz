@@ -276,7 +276,7 @@ span{
 
     .search-box textarea {
         border-color: transparent;
-        padding: 0%;
+        padding: 5%;
     }
 
     .search-box textarea::placeholder {
