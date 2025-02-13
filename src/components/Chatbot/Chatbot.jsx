@@ -23,6 +23,14 @@ const Chatbot = () => {
         }
     }, [chatHistory, resultData]);
 
+    const handleSend = () => {
+        if (input.trim() !== "") {
+            onSent();
+            setInput(""); // Clear input after sending
+            setRows(1);    // Reset rows
+        }
+    };
+
     return (
         <div className="chatbot">
             <div className='result' ref={resultRef}>
@@ -64,8 +72,8 @@ const Chatbot = () => {
 
             <div className="main-bottom">
                 <div className="search-box">
-                    <textarea 
-                        rows={rows} 
+                    <textarea
+                        rows={rows}
                         onChange={(e) => {
                             setInput(e.target.value);
                             const lineCount = e.target.value.split('\n').length;
@@ -74,7 +82,7 @@ const Chatbot = () => {
                         onKeyDown={(e) => {
                             if (e.key === 'Enter' && !e.shiftKey) {
                                 e.preventDefault();
-                                onSent();
+                                handleSend();
                             }
                         }}
                         value={input}
@@ -82,8 +90,8 @@ const Chatbot = () => {
                         style={{ color: 'white', alignContent: 'center', resize: 'none' }}
                     />
                     <div className="icon-container">
-                        <button type="submit" onClick={onSent}>
-                            <img src={assets.send_icon} alt="Send"/>
+                        <button type="button" onClick={handleSend}>
+                            <img src={assets.send_icon} alt="Send" />
                         </button>
                     </div>
                 </div>
