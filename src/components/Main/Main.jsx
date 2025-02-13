@@ -21,7 +21,7 @@ setInput(text); // Use setInput from context to update Chatbot's input
         <nav className="nav">
           <p onClick={() => newChat()} className='baskervville-regular' id='title'>aXtRizz</p>
           <a href="https://axtr.in">
-          <img src="src/assets/favicon.png" alt=" " className='image'/>
+          <link rel="icon" type="image/svg+xml" href="src/assets/favicon.png" />
           </a>
         </nav>
         <div className="main-container">
