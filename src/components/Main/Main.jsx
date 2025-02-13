@@ -5,6 +5,10 @@ import './Main.css';
 import {assets} from "../../assets/assets.js";
 import {Context} from "../../context/context.jsx";
 import {useContext} from "react";
+import whiteFG from "../../assets/whiteFG.svg";  // adjust if necessary
+
+
+
 
 const Main = () => {
 const { newChat, showChatbot, setInput } = useContext(Context); // ADD setInput from context
@@ -21,7 +25,7 @@ setInput(text); // Use setInput from context to update Chatbot's input
         <nav className="nav">
           <p onClick={() => newChat()} className='baskervville-regular' id='title'>aXtRizz</p>
           <a href="https://axtr.in">
-          <link rel="icon" type="image/svg+xml" href="src/assets/favicon.png" />
+          <img src={whiteFG} alt=" " className="image" />
           </a>
         </nav>
         <div className="main-container">
