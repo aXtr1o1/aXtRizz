@@ -2,37 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>aXtRizz</title>
-    
-    <!-- Default Favicon (Light Mode) -->
-    <link id="favicon" rel="icon" type="image/png" href="src/assets/Favicon-light.png" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-95661YM4PG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-95661YM4PG"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-95661YM4PG');
-    </script>
-
-    <script>
-      // Function to update favicon based on theme
-      function updateFavicon() {
-        const favicon = document.getElementById("favicon");
-        const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        
-        favicon.href = isDarkMode ? "src/assets/favicon.ico" : "src/assets/Favicon-light.png";
-      }
-
-      // Initial favicon update
-      updateFavicon();
-
-      // Listen for theme changes
-      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
-    </script>
-
+  gtag('config', 'G-95661YM4PG');
+</script>
   </head>
   <body>
     <div id="root"></div>
