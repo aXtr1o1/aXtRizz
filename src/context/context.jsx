@@ -1,10 +1,8 @@
-import {createContext, useState} from "react";
-import runChat from "../config/openai";
+import { createContext, useState, useEffect } from "react";
 
 export const Context = createContext();
 
 const ContextProvider = (props) => {
-
     const [input, setInput] = useState("");
     const [recentPrompt, setRecentPrompt] = useState("");
     const [prevPrompts, setPrevPrompts] = useState([]);
@@ -13,13 +11,27 @@ const ContextProvider = (props) => {
     const [resultData, setResultData] = useState("");
     const [chatHistory, setChatHistory] = useState([]);
     const [showChatbot, setShowChatbot] = useState(false);
-    const [currentChat, setCurrentChat] = useState(null); // ADD currentChat state
+
+    // Clears session storage on page reload
+    useEffect(() => {
+        sessionStorage.clear();
+        setChatHistory([]);
+    }, []);
+
+    // Generate a session ID (not needed across refresh)
+    const sessionId = crypto.randomUUID();
+
+    // Function to save chat history in sessionStorage (only last 20 messages)
+    const saveChatHistory = (messages) => {
+        const last20Messages = messages.slice(-20);
+        sessionStorage.setItem(`chatHistory_${sessionId}`, JSON.stringify(last20Messages));
+    };
 
     const delayPara = (index, nextWord) => {
-        setTimeout(function () {
-            setResultData(prev => prev + nextWord)
+        setTimeout(() => {
+            setResultData((prev) => prev + nextWord);
         }, 75 * index);
-    }
+    };
 
     const newChat = () => {
         setLoading(false);
@@ -27,54 +39,46 @@ const ContextProvider = (props) => {
         setResultData("");
         setChatHistory([]);
         setShowChatbot(false);
-        setCurrentChat(null); // Clear currentChat on new chat - ADD THIS LINE
-    }
+        sessionStorage.clear(); // Clears session storage
+    };
 
     const onSent = async (prompt) => {
-
         setShowChatbot(true);
         setResultData("");
         setLoading(true);
         setShowResult(true);
-        let currentPrompt;
-        if (prompt !== undefined) {
-            currentPrompt = prompt;
-        } else {
-            setPrevPrompts(prev => [...prev, input]);
-            currentPrompt = input;
-        }
 
-        // Move previous currentChat to history, if it exists
-        if (currentChat) {
-            setChatHistory(prevHistory => [...prevHistory, currentChat]);
-        }
+        const currentPrompt = prompt ?? input;
+        setPrevPrompts((prev) => [...prev, currentPrompt]);
         setInput("");
-
         setRecentPrompt(currentPrompt);
-        const response = await runChat(currentPrompt);
 
-        // Set the new current chat (will be moved to history on next input)
-        setCurrentChat({ prompt: currentPrompt, response: response });
+        // Prepare messages for backend request
+        const updatedChatHistory = [...chatHistory, { role: "user", content: currentPrompt }];
+        
+        const response = await fetch("http://localhost:5000/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ sessionId, userPrompt: currentPrompt, chatHistory: updatedChatHistory }),
+        });
 
+        const data = await response.json();
+        const newMessage = { role: "assistant", content: data.message };
 
-        let responseArray = response.split("**");
-        let newResponse = "";
-        for (let i = 0; i < responseArray.length; i++) {
-            if (i === 0 || i % 2 !== 1) {
-                newResponse += responseArray[i];
-            } else {
-                newResponse += "<b>" + responseArray[i] + "</b>"
-            }
-        }
-        let newResponse2 = newResponse.split("*").join("</br>");
-        let newResponseArray = newResponse2.split(" ");
+        // Update chat history only once (avoiding duplication)
+        const finalChatHistory = [...updatedChatHistory, newMessage].slice(-20);
+        setChatHistory(finalChatHistory);
+        saveChatHistory(finalChatHistory);
+
+        // Display animated response
+        let responseArray = data.message.split("**");
+        let newResponse = responseArray.map((text, i) => (i % 2 === 1 ? `<b>${text}</b>` : text)).join("");
+        let formattedResponse = newResponse.split("*").join("</br>").split(" ");
         setResultData("");
-        for (let i = 0; i < newResponseArray.length; i++) {
-            const nextWord = newResponseArray[i];
-            delayPara(i, nextWord + " ");
-        }
+        formattedResponse.forEach((word, i) => delayPara(i, word + " "));
+
         setLoading(false);
-    }
+    };
 
     const contextValue = {
         prevPrompts,
@@ -92,12 +96,9 @@ const ContextProvider = (props) => {
         setChatHistory,
         showChatbot,
         setShowChatbot,
-    }
-    return (
-        <Context.Provider value={contextValue}>
-            {props.children}
-        </Context.Provider>
-    )
-}
+    };
+
+    return <Context.Provider value={contextValue}>{props.children}</Context.Provider>;
+};
 
 export default ContextProvider;

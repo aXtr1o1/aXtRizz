@@ -29,14 +29,17 @@ const Chatbot = () => {
                 {chatHistory.length === 0 && !showResult ? (
                     <p className="empty-chat"></p>
                 ) : (
-                    chatHistory.map((chatItem, index) => (
+                    chatHistory.slice(0, -2).map((chatItem, index) => (
                         <div key={index}>
-                            <div className="result-title user-prompt">
-                                <p>{chatItem.prompt}</p>
-                            </div>
-                            <div className="result-data bot-response">
-                                <p dangerouslySetInnerHTML={{ __html: chatItem.response }}></p>
-                            </div>
+                            {chatItem.role === "user" ? (
+                                <div className="result-title user-prompt">
+                                    <p>{chatItem.content}</p>
+                                </div>
+                            ) : (
+                                <div className="result-data bot-response">
+                                    <p dangerouslySetInnerHTML={{ __html: chatItem.content }}></p>
+                                </div>
+                            )}
                         </div>
                     ))
                 )}
