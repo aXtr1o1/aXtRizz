@@ -60,7 +60,7 @@ const ContextProvider = (props) => {
         // Prepare messages for backend request
         const updatedChatHistory = [...chatHistory, { role: "user", content: currentPrompt }];
         
-        const response = await fetch("http://134.209.150.173:5001/chat", {
+        const response = await fetch("https://rizz.axtr-product.tech/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ sessionId, userPrompt: currentPrompt, chatHistory: updatedChatHistory }),
