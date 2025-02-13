@@ -1,6 +1,5 @@
 // src/components/Main/Main.jsx
 import React from 'react'
-import SideBar from '../SideBar/SideBar'
 import Chatbot from '../Chatbot/Chatbot';
 import './Main.css';
 import {assets} from "../../assets/assets.js";
