@@ -5,7 +5,7 @@ import './Main.css';
 import {assets} from "../../assets/assets.js";
 import {Context} from "../../context/context.jsx";
 import {useContext} from "react";
-import whiteFG from "../../assets/whiteFG.svg";  // adjust if necessary
+import whiteFG from "../../assets/whiteFG.png";  // adjust if necessary
 
 
 
