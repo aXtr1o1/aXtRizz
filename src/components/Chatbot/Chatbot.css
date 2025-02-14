@@ -13,6 +13,7 @@ body {
     flex: 1;
     position: relative;
     overflow-y: auto;
+    display: block;
 }
 
 .chatbot .nav {
@@ -59,6 +60,7 @@ body {
 }
 .search-box textarea:focus{
     outline: none;
+    height: auto;
 }
 .search-box textarea:focus-within {
     background-color: transparent;
@@ -208,6 +210,7 @@ span{
     .search-box {
         flex-direction: column;
         align-items: start;
+        width: 100%;
         border-radius: 15px;
         padding: 10px 15px;
         gap: 10px;
@@ -239,6 +242,7 @@ span{
 
 /* for laptops and bigger sized screens only */
 @media (min-width: 800px) {
+
 
     .main-bottom {
         max-width: 900px;
@@ -276,7 +280,6 @@ span{
 
     .search-box textarea {
         border-color: transparent;
-        padding: 5%;
     }
 
     .search-box textarea::placeholder {
